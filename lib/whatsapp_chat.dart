@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 //import 'package:flutter/widgets.dart';
 
 class WhatsappChat extends StatefulWidget {
-  const WhatsappChat({super.key});
+  final Map<String, dynamic> usersinfo;
+  const WhatsappChat({super.key, required this.usersinfo});
 
   @override
   State<WhatsappChat> createState() => _WhatsappChatState();
@@ -30,9 +31,12 @@ class _WhatsappChatState extends State<WhatsappChat> {
                   ),
                   Container(
                     padding: const EdgeInsets.only(left: 10),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('name'), Text('ago')],
+                      children: [
+                        Text(widget.usersinfo['name']),
+                        Text(widget.usersinfo['time']),
+                      ],
                     ),
                   ),
                   const Spacer(),

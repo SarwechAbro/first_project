@@ -1,3 +1,4 @@
+import 'package:first_project/whatsapp_chat.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -15,6 +16,8 @@ class _LoginViewState extends State<LoginView> {
   bool validator(TextEditingController controller, String data) {
     return controller.text == data;
   }
+
+  Map<String, dynamic> students = {'name': 'Sarwech', 'time': '5 mins'};
 
   @override
   Widget build(BuildContext context) {
@@ -96,9 +99,19 @@ class _LoginViewState extends State<LoginView> {
                         if (validator(usernamecontroler, username) &&
                             validator(userpasswordcontroler, password)) {
                           // Show a success message
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Welcome')),
-                          );
+                          if (students.isNotEmpty) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    WhatsappChat(usersinfo: students),
+                              ),
+                            );
+                          } else {
+                           
+                            print('usersinfo is null');
+                          }
+                     
                         } else {
                           // Show an error message
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -129,15 +142,6 @@ class _LoginViewState extends State<LoginView> {
                         ],
                       ),
                     )),
-                Container(
-                  height: 100,
-                  width: 300,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue,
-                  ),
-                  child: const Text('Just'),
-                )
               ],
             ),
           ),

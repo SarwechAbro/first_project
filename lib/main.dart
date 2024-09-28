@@ -1,6 +1,7 @@
 //import 'package:first_project/home_screen.dart';
 //import 'package:first_project/images.dart';
-import 'package:first_project/whatsapp_chat.dart';
+import 'package:first_project/logo_screen.dart';
+//import 'package:first_project/whatsapp_chat.dart';
 //import 'package:first_project/whatsapp_chat.dart';
 //import 'package:first_project/todoapp.dart';
 //import 'package:first_project/practice.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WhatsappChat(),
+      home: LogoScreen(),
     );
   }
 }
